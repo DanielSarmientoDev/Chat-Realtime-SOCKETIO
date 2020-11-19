@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat | Daniel Sarmiento Dev</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="chat">
+      <ul id="messages">
+      </ul>
+      <form action="">
+        <input id="m" autocomplete="off" type="text"/><button>Send</button>
+      </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+          //Inicializamos io
+            var socket = io();
+          //con jquery manejamos el evento del form
+            $('form').submit(function(e){
+            e.preventDefault(); // no se recargue la pagina
+            //msg = a el valor del input
+            socket.emit('chat message', $('#m').val());
+            //reiniciar el valor del input
+            $('#m').val('');
+            return false;
+            });
+            //para resibir el mensaje
+            socket.on('chat message', function(msg){
+            $('#messages').append($('<li>').text('Daniel Sarmiento Dev: ' + msg));
+            });
+        });
+    </script>
+  </body>
+</html>
