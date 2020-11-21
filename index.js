@@ -3,9 +3,11 @@ const express = require("express");
 //Para Inicializar la libreria
 const app = express();
 //Importamos he inicializamos con (app)
-var http = require('http').createServer(app);
+let http = require('http').createServer(app);
 //Io es para hacer conexiones
-var io = require('socket.io')(http);
+let io = require('socket.io')(http);
+//Guardo en una variable el puerto
+var PORT = 8080;
 //Para poder utilizar archivos estaticos como images,scripts and css
 app.use(express.static("public"));
 //especificamos la ruta principal y la redireccion
@@ -28,6 +30,6 @@ io.on('connection', (socket) => {
       });
   });
 
-http.listen(3010, () => {
-    console.log(`Server running in http://localhost:3010`)
+http.listen(PORT,() => {
+    console.log(`Location server in http://localhost:${PORT}`)
 })

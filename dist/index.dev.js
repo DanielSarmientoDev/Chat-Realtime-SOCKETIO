@@ -9,8 +9,10 @@ var app = express(); //Importamos he inicializamos con (app)
 var http = require('http').createServer(app); //Io es para hacer conexiones
 
 
-var io = require('socket.io')(http); //Para poder utilizar archivos estaticos como images,scripts and css
+var io = require('socket.io')(http); //Guardo en una variable el puerto
 
+
+var PORT = 8080; //Para poder utilizar archivos estaticos como images,scripts and css
 
 app.use(express["static"]("public")); //especificamos la ruta principal y la redireccion
 
@@ -32,6 +34,6 @@ io.on('connection', function (socket) {
     io.emit('chat message', msg);
   });
 });
-http.listen(3010, function () {
-  console.log("Server running in http://localhost:3010");
+http.listen(PORT, function () {
+  console.log("Location server in http://localhost:".concat(PORT));
 });

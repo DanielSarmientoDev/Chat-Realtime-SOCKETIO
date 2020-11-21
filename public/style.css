@@ -1,8 +1,27 @@
 body{
+    background-color: #05d168;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    transition: 1s all;
 
 }
-
+h1{
+    margin:10px;
+    color: white;
+    box-shadow:  1px 3px 11px black;
+    border-radius:9px;
+    background-color:#3a5346;
+    text-align:center;
+    transition: 1s all;
+    padding: 20px;
+}
+h1:hover{
+    transform: scale(1.1);
+    transition: 1s all;
+}
 .chat{
     width: 500px;
     border-radius: 10px;
@@ -29,7 +48,8 @@ form{
     text-align: center;
 }
 button{
-    padding: 10px 20px;
+    padding: 10px 30px;
+    margin-bottom: 10px;
     border-radius: 10px;
     background-color: #E8FFB7;
     border: none;
@@ -56,3 +76,11 @@ li:hover{
 input[type=text]:focus {
     outline: none;
  }
+
+ .about{
+     text-align: center;
+     color: white;
+     font-family: 'Roboto', sans-serif;
+ }
+
+ 
