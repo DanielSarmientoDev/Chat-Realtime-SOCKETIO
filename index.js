@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
 // io.on sirve para darle logica a la conexión de socket
 // 'connection' se ejecuta una vez quel cliente inicia la conexión
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('se ha conectado un usuario');
     //esta array funcion sirve para saber si el cliente se desconecto
     socket.on('disconnect', () => {
-      console.log('user disconnected');
+      console.log('se ha desconectado un usuario');
     });
     //esta array funcion sirve para emitir mensajes enviados y recibidos por el cliente
     socket.on('chat message', (msg) => {

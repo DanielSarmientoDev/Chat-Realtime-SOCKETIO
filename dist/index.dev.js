@@ -24,10 +24,10 @@ app.get('/', function (req, res) {
 // 'connection' se ejecuta una vez quel cliente inicia la conexión
 
 io.on('connection', function (socket) {
-  console.log('a user connected'); //esta array funcion sirve para saber si el cliente se desconecto
+  console.log('se ha conectado un usuario'); //esta array funcion sirve para saber si el cliente se desconecto
 
   socket.on('disconnect', function () {
-    console.log('user disconnected');
+    console.log('se ha desconectado un usuario');
   }); //esta array funcion sirve para emitir mensajes enviados y recibidos por el cliente
 
   socket.on('chat message', function (msg) {
